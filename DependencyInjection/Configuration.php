@@ -20,10 +20,35 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('opti_lol_api');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
-
+        $rootNode
+            ->children()
+                ->scalarNode('key')
+                    ->defaultValue(false)
+                    ->info('Sets the API key to be used to query the League of Legends Servers')
+                ->end()
+                ->booleanNode('cache')
+                    ->defaultFalse()
+                    ->info('Toggles the caching option of the bundle')
+                ->end()
+                ->arrayNode('endpoints')
+                ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('br')->defaultValue('br.api.pvp.net')->end()
+                        ->scalarNode('eune')->defaultValue('eune.api.pvp.net')->end()
+                        ->scalarNode('euw')->defaultValue('euw.api.pvp.net')->end()
+                        ->scalarNode('kr')->defaultValue('kr.api.pvp.net')->end()
+                        ->scalarNode('lan')->defaultValue('lan.api.pvp.net')->end()
+                        ->scalarNode('las')->defaultValue('las.api.pvp.net')->end()
+                        ->scalarNode('na')->defaultValue('na.api.pvp.net')->end()
+                        ->scalarNode('oce')->defaultValue('oce.api.pvp.net')->end()
+                        ->scalarNode('tr')->defaultValue('tr.api.pvp.net')->end()
+                        ->scalarNode('ru')->defaultValue('ru.api.pvp.net')->end()
+                        ->scalarNode('pbe')->defaultValue('pbe.api.pvp.net')->end()
+                        ->scalarNode('global')->defaultValue('global.api.pvp.net')->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
         return $treeBuilder;
     }
 }

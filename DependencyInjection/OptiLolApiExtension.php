@@ -24,5 +24,12 @@ class OptiLolApiExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        if (!$config['key']) {
+            throw new \InvalidArgumentException('The "key" option must be set');
+        }
+
+        $container->setParameter('opti_lol_api.key', $config['key']);
+        $container->setParameters('opti_lol_api.cache', $config['cache']);
     }
 }
