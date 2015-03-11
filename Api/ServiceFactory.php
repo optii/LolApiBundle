@@ -737,15 +737,6 @@ class ServiceFactory {
                     'additionalProperties' => [
                         'location' => 'json'
                     ],
-                ],
-                'GetImage' => [
-                    'type' => 'object',
-                    'properties' => [
-                        'image' => [
-                            'location' => 'body',
-                            'type' => 'string'
-                        ]
-                    ],
                 ]
             ]
         ];

@@ -40,3 +40,95 @@ opti_lol_api:
             na: na.api.pvp.net
             ...
 ```
+
+# Using the bundle
+
+The bundle has 2 services for the moment opti_lol_api.static, for all the static api calls you need to make and the opti_lol_api.regional service for all the regional request that are made, so how do you make a request ?
+
+a request to the static api would look like this :
+
+```php
+    $static = $this->get('opti_lol_api.static');
+    $data = $static->getChampions();
+```
+
+As you can see in the API documentation normally to get the champions a region is a required parameter, because the region defaults to the one from the configuration file, to make calls easier, you can still change the region if you wish in your code, like this:
+
+```php
+    $static = $this->get('opti_lol_api.static');
+    $data = $static->getChampions(['region' => Region::NA]);
+```
+
+# Available queries for the static API
+
+```php
+    $static->getChampions(); 
+    $static->getChampion(['id' => $id]);
+    $static->getItems();
+    $static->getItem(['id' => $itemId]);
+    $static->getLanguageString();
+    $static->getLanguages();
+    $static->getMap();
+    $static->getMasteries();
+    $static->getMastery(['id'=>$masteryId]);
+    $static->getRealm();
+    $static->getRunes();
+    $static->getRune(['id' => $runeId]);
+    $static->getSummonerSpells();
+    $static->getSummonerSpell(['id' => $spellId]);
+    $static->getVersions();
+```
+
+A list of optional parameters are available on the League of legends API website
+
+# Available queries for the regional API
+
+```php
+    $regional->getChampions();
+    $regional->getChampion(['id' => $id]);
+    $regional->getCurrentGame(['summonerId' => $id, 'platformId' => Platform::EUW]);
+    $regional->getFeaturedGames();
+    $regional->getRecentGames(['summonerId' => $id]);
+    $regional->getLeaguesBySummoners(['summonerIds' => $summoners]);
+    $regional->getLeagueEntriesBySummoners(['summonerIds' => $summoners]);
+    $regional->getLeaguesByTeams(['teamIds' => $teams]);
+    $regional->getLeagueEntriesByTeams(['teamIds' => $teams]);
+    $regional->getChallengerLeagues(['type' =>  Queue::RANKED_SOLO_5X5]);
+    $regional->getShards();
+    $regional->getShard();
+    $regional->getMatch(['matchId' => $matchId]);
+    $regional->getMatchHistory(['summonerId' => $id]);
+    $regional->getRankedStats(['summonerId' => $id]);
+    $regional->getSummaryStats(['summonerId' => $id]);
+    $regional->getSummonersByNames(['summonerNames' => $names]);
+    $regional->getSummonersByIds(['summonerIds' => $ids]);
+    $regional->getMasteriesBySummoners(['summonerIds' => $ids]);
+    $regional->getSummonerNamesByIds(['summonerIds' => $ids]);
+    $regional->getRunesBySummoners(['summonerIds' => $ids]);
+    $regional->getTeamsBySummoners(['summonerIds' => $ids]);
+    $regional->getTeamsByIds(['teamIds' => $ids]);
+```
+
+# Throttling
+
+ Throttling can be enabled using the ```throttle: true``` configuration.
+ It is not currently possible to configure the time of the throttling, its previewed in a future version
+ 
+# Caching
+ 
+ Caching is not yet implement, its coming soon. Like real soon !!
+
+# Helper classes
+
+Some helper classes are in the bundle to make it easier to get the good strings to use for the request.
+
+Doc to be completed
+
+#Info
+
+ Planning on adding helpers to help parse some of the data and twig functions for maps/runes/masteries/icons/champs etc
+ 
+ 
+
+
+
