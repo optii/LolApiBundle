@@ -307,7 +307,7 @@ class ServiceFactory {
 
     public function getRegionalServices(){
         return [
-            'baseUrl' => $this->endpoints[$this->region],
+            'baseUrl' => 'https://'.$this->endpoints[$this->region],
             'operations' => [
                 'getChampions' => [
                     'httpMethod' => 'GET',
