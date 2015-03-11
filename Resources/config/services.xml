@@ -8,7 +8,7 @@
         <service id="opti_lol_api.static" class="Opti\LolApiBundle\Api\StaticApi">
             <argument type="service" id="service_container" />
         </service>
-        <service id="opti_lol_api.regional" class="Opti\LolApiBundle\Api\StaticApi">
+        <service id="opti_lol_api.regional" class="Opti\LolApiBundle\Api\RegionalApi">
             <argument type="service" id="service_container" />
         </service>
     </services>
