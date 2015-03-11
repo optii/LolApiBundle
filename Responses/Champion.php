@@ -8,9 +8,7 @@
 
 namespace Opti\LolApiBundle\Responses;
 
-use
-
-class Champion implements ResponseInterface{
+class Champion{
 
     protected $active;
     protected $botEnabled;
@@ -19,17 +17,11 @@ class Champion implements ResponseInterface{
     protected $id;
     protected $rankedPlayEnabled;
 
-    public static function fromCommand(OperationCommand $command)
-    {
-        $response = $command->getResponse();
-        $xml = $response->xml();
 
-        return new self((string) $xml);
-    }
 
     public function __construct($data)
     {
-        $this->
+        $this->data = $data;
     }
 }
 

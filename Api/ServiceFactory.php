@@ -312,7 +312,8 @@ class ServiceFactory {
                 'getChampions' => [
                     'httpMethod' => 'GET',
                     'uri' => '/api/lol/{region}/v1.2/champion',
-                    'responseModel' => 'GetResponse',
+                    //'responseModel' => 'GetResponse',
+                    'responseClass' => 'Opti\\LolApiBundle\\Responses\\Champion',
                     'parameters' => [
                         'region' => [
                             'type' => 'string',
