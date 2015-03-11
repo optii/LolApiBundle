@@ -40,7 +40,7 @@ abstract class Api {
 
 
     public function __call($name, $arguments){
-        return $this->client->{$name}($arguments[0]);
+        return $this->client->{$name}((array_key_exists(0,$arguments)) ? $arguments[0] : null);
     }
 
 
