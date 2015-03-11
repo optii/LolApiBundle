@@ -1,6 +1,7 @@
 {
   "name" : "opti/LolApiBundle",
   "description" : "Lol API bundle",
+  "version": "0.1",
   "type" : "symfony-bundle",
   "authors" : [{
     "name" : "Optii",
@@ -27,7 +28,7 @@
   }],
   "extra" : {
     "branch-alias" : {
-      "dev-master" : "some_version-dev"
+      "dev-master" : "0.1-dev"
     }
   }
 }

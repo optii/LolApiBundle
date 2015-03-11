@@ -30,6 +30,9 @@ class OptiLolApiExtension extends Extension
         }
 
         $container->setParameter('opti_lol_api.key', $config['key']);
-        $container->setParameters('opti_lol_api.cache', $config['cache']);
+        $container->setParameter('opti_lol_api.cache', $config['cache']);
+        $container->setParameter('opti_lol_api.endpoints', $config['endpoints']);
+        $container->setParameter('opti_lol_api.region', $config['region']);
+        $container->setParameter('opti_lol_api.throttle', $config['throttle']);
     }
 }

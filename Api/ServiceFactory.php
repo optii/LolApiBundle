@@ -13,14 +13,14 @@ class ServiceFactory {
     private $region;
     private $endpoints;
 
-    public function __construct($region, $endpoints){
+    public function __construct($endpoints, $region = null){
         $this->region = $region;
         $this->endpoints = $endpoints;
     }
 
     public function getStaticDataService(){
         return [
-            'baseUrl' => $this->endpoints['global'],
+            'baseUrl' => 'https://'.$this->endpoints['global'],
             'operations' => [
                 'getChampions' => [
                     'httpMethod' => 'GET',
@@ -30,7 +30,28 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
+                        ],
+                        'locale' => [
+                            'type' => 'string',
+                            'location' => 'query',
+                            'required' => false
+                        ],
+                        'version' => [
+                            'type' => 'string',
+                            'location' => 'query',
+                            'required' => false
+                        ],
+                        'dataById' => [
+                            'type' => 'boolean',
+                            'location' => 'query',
+                            'required' => false
+                        ],
+                        'champData' => [
+                            'type' => 'string',
+                            'location' => 'query',
+                            'required' => false
                         ]
                     ]
                 ],
@@ -42,12 +63,28 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'id' => [
                             'type' => 'string',
                             'location' => 'uri',
                             'required' => true
+                        ],
+                        'locale' => [
+                            'type' => 'string',
+                            'location' => 'query',
+                            'required' => false
+                        ],
+                        'version' => [
+                            'type' => 'string',
+                            'location' => 'query',
+                            'required' => false
+                        ],
+                        'champData' => [
+                            'type' => 'string',
+                            'location' => 'query',
+                            'required' => false
                         ]
                     ]
                 ],
@@ -59,8 +96,24 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
+                    ],
+                    'locale' => [
+                        'type' => 'string',
+                        'location' => 'query',
+                        'required' => false
+                    ],
+                    'version' => [
+                        'type' => 'string',
+                        'location' => 'query',
+                        'required' => false
+                    ],
+                    'itemListData' => [
+                        'type' => 'string',
+                        'location' => 'query',
+                        'required' => false
                     ]
                 ],
                 'getItem' => [
@@ -71,7 +124,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'id' => [
                             'type' => 'string',
@@ -88,7 +142,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
                     ]
                 ],
@@ -100,7 +155,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
                     ]
                 ],
@@ -112,7 +168,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
                     ]
                 ],
@@ -124,7 +181,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
                     ]
                 ],
@@ -136,7 +194,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'id' => [
                             'type' => 'string',
@@ -153,7 +212,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
                     ]
                 ],
@@ -165,19 +225,21 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
                     ]
                 ],
                 'getRune' => [
                     'httpMethod' => 'GET',
-                    'uri' => '/api/lol/static-data/{region}/v1.2/rune{id}',
+                    'uri' => '/api/lol/static-data/{region}/v1.2/rune/{id}',
                     'responseModel' => 'GetResponse',
                     'parameters' => [
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'id' => [
                             'type' => 'string',
@@ -194,19 +256,21 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
                     ]
                 ],
                 'getSummonerSpell' => [
                     'httpMethod' => 'GET',
-                    'uri' => '/api/lol/static-data/{region}/v1.2/summoner-spell{id}',
+                    'uri' => '/api/lol/static-data/{region}/v1.2/summoner-spell/{id}',
                     'responseModel' => 'GetResponse',
                     'parameters' => [
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'id' => [
                             'type' => 'string',
@@ -223,12 +287,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
-                        ],
-                        'id' => [
-                            'type' => 'string',
-                            'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
                     ]
                 ],
@@ -239,20 +299,10 @@ class ServiceFactory {
                     'additionalProperties' => [
                         'location' => 'json'
                     ],
-                ],
-                'GetImage' => [
-                    'type' => 'object',
-                    'properties' => [
-                        'image' => [
-                            'location' => 'body',
-                            'type' => 'string'
-                        ]
-                    ],
                 ]
             ]
         ];
     }
-
 
 
     public function getRegionalServices(){
@@ -267,7 +317,13 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
+                        ],
+                        'freeToPlay' => [
+                            'type' => 'boolean',
+                            'location' => 'query',
+                            'required' => false
                         ]
                     ]
                 ],
@@ -284,7 +340,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
                     ]
                 ],
@@ -294,7 +351,7 @@ class ServiceFactory {
                     'responseModel' => 'GetResponse',
                     'parameters' => [
                         'summonerId' => [
-                            'type' => 'string',
+                            'type' => 'integer',
                             'location' => 'uri',
                             'required' => true
                         ],
@@ -319,10 +376,11 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerId' => [
-                            'type' => 'string',
+                            'type' => 'integer',
                             'location' => 'uri',
                             'required' => true
                         ]
@@ -336,7 +394,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerIds' => [
                             'type' => 'string',
@@ -353,7 +412,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerIds' => [
                             'type' => 'string',
@@ -370,7 +430,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'teamIds' => [
                             'type' => 'string',
@@ -387,7 +448,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'teamIds' => [
                             'type' => 'string',
@@ -404,6 +466,12 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
+                            'required' => false,
+                            'default' => $this->region,
+                        ],
+                        'type' => [
+                            'type' => 'string',
+                            'location' => 'query',
                             'required' => true
                         ]
                     ]
@@ -422,7 +490,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ]
                     ]
                 ],
@@ -434,12 +503,18 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'matchId' => [
                             'type' => 'string',
                             'location' => 'uri',
                             'required' => true
+                        ],
+                        'includeTimeline' => [
+                            'type' => 'boolean',
+                            'location' => 'query',
+                            'required' => false
                         ]
                     ]
                 ],
@@ -451,12 +526,33 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerId' => [
                             'type' => 'string',
                             'location' => 'uri',
                             'required' => true
+                        ],
+                        'championIds' => [
+                            'type' => 'string',
+                            'location' => 'query',
+                            'required' => false
+                        ],
+                        'rankedQueues' => [
+                            'type' => 'string',
+                            'location' => 'query',
+                            'required' => false
+                        ],
+                        'beginIndex' => [
+                            'type' => 'integer',
+                            'location' => 'query',
+                            'required' => false
+                        ],
+                        'endIndex' => [
+                            'type' => 'integer',
+                            'location' => 'query',
+                            'required' => false
                         ]
                     ]
                 ],
@@ -468,12 +564,18 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerId' => [
                             'type' => 'string',
                             'location' => 'uri',
                             'required' => true
+                        ],
+                        'season' => [
+                            'type' => 'string',
+                            'location' => 'query',
+                            'required' => false
                         ]
                     ]
                 ],
@@ -485,12 +587,18 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerId' => [
                             'type' => 'string',
                             'location' => 'uri',
                             'required' => true
+                        ],
+                        'season' => [
+                            'type' => 'string',
+                            'location' => 'query',
+                            'required' => false
                         ]
                     ]
                 ],
@@ -502,7 +610,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerNames' => [
                             'type' => 'string',
@@ -520,7 +629,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerIds' => [
                             'type' => 'string',
@@ -537,7 +647,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerIds' => [
                             'type' => 'string',
@@ -554,7 +665,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerIds' => [
                             'type' => 'string',
@@ -571,7 +683,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerIds' => [
                             'type' => 'string',
@@ -588,7 +701,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'summonerIds' => [
                             'type' => 'string',
@@ -605,7 +719,8 @@ class ServiceFactory {
                         'region' => [
                             'type' => 'string',
                             'location' => 'uri',
-                            'required' => true
+                            'required' => false,
+                            'default' => $this->region,
                         ],
                         'teamIds' => [
                             'type' => 'string',
@@ -634,5 +749,13 @@ class ServiceFactory {
                 ]
             ]
         ];
+    }
+
+    /**
+     * @param $region
+     */
+    public function setRegion($region){
+        $this->region = $region;
+        return $this;
     }
 }

@@ -4,13 +4,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
     <services>
-        <service id="opti_lol_api.example" class="Opti\LolApiBundle\Example">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="opti_lol_api.static" class="Opti\LolApiBundle\Api\StaticApi">
+            <argument type="service" id="service_container" />
+        </service>
+        <service id="opti_lol_api.regional" class="Opti\LolApiBundle\Api\StaticApi">
+            <argument type="service" id="service_container" />
         </service>
     </services>
-    -->
 </container>

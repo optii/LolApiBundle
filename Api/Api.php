@@ -8,21 +8,63 @@
 
 namespace Opti\LolApiBundle\Api;
 
+use GuzzleHttp\Client;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use GuzzleHttp\Command\Guzzle\Description;
+use GuzzleHttp\Command\Guzzle\GuzzleClient;
+use Opti\LolApiBundle\Subscriber\ThrottleSubscriber;
 
-class Api {
-    private $endpoints;
+abstract class Api {
 
-    public function __construct($endpoints, $region, $caching){
-        $this->endpoints = $endpoints;
-        $this->region = $region;
-        $this->caching = $caching;
+    /** @var  array */
+    protected $endpoints;
+    /** @var  string */
+    protected $region;
+    /** @var  boolean */
+    protected $caching;
+    /** @var  ContainerInterface */
+    protected $container;
+    /** @var  ServiceFactory */
+    protected $serviceFactory;
+    /** @var  Client */
+    protected $client;
+
+    public function __construct(ContainerInterface $container){
+        $this->container = $container;
+        $this->endpoints = $container->getParameter('opti_lol_api.endpoints');
+        $this->region = $container->getParameter('opti_lol_api.region');
+        $this->caching = $container->getParameter('opti_lol_api.cache');
+        $this->serviceFactory = new ServiceFactory($this->endpoints, $this->region);
+        $this->buildClientFactory();
     }
 
 
     public function __call($name, $arguments){
-        $serviceFactory = new ServiceFactory($this->endpoints, $this->region);
-        $client = ClientFactory::factory($serviceFactory->getRegionalServices());
-        //TODO: Implement caching here ??
-        return $client->{$name}($arguments);
+        return $this->client->{$name}($arguments[0]);
+    }
+
+
+    /**
+     * @return array The array of services for the given region and endpoint
+     */
+    public abstract function getService();
+
+    /**
+     * @return Client The guzzle client
+     */
+    public function buildClientFactory(){
+        $defaultConfig = [
+            'defaults' => [
+                'query' => ['api_key' => $this->container->getParameter('opti_lol_api.key')],
+            ],
+        ];
+
+        $client = new Client($defaultConfig);
+        $description = new Description($this->getService());
+        $this->client = new GuzzleClient($client, $description);
+
+        if($this->container->getParameter('opti_lol_api.throttle')){
+            $this->client->getHttpClient()->getEmitter()->attach(new ThrottleSubscriber());
+        }
     }
 }
