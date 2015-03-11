@@ -9,7 +9,7 @@ This bundle will allow you to query the League of Legends API endpoints. Query t
 
 To install the bundle update your composer.json with the follow :
 
-```
+```json
      "require": {
             "opti/LolApiBundle" : "dev-master"
         },
@@ -21,13 +21,15 @@ To install the bundle update your composer.json with the follow :
 
 The next step is to activate the bundle in the symfony kernel, add the following line to your app/AppKernel.php
 
-```
-    new Opti\LolApiBundle\OptiLolApiBundle()
+```php
+    array(
+        new Opti\LolApiBundle\OptiLolApiBundle(),
+        );
 ```
 
 Next you will have to configure the bundle, so it will work properly, here are the available configuration options
 
-```
+```yaml
 opti_lol_api:
     key: 12341231231214 #(required) Your api key 
     region: euw  #(optional) The default region
