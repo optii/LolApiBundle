@@ -23,18 +23,24 @@ abstract class Api {
     protected $region;
     /** @var  boolean */
     protected $caching;
-    /** @var  ContainerInterface */
-    protected $container;
+    /** @var  string */
+    protected $key;
+    /** @var  string */
+    protected $cacheDir;
     /** @var  ServiceFactory */
     protected $serviceFactory;
     /** @var  Client */
     protected $client;
+    /** @var  boolean */
+    protected $throttle;
 
-    public function __construct(ContainerInterface $container){
-        $this->container = $container;
-        $this->endpoints = $container->getParameter('opti_lol_api.endpoints');
-        $this->region = $container->getParameter('opti_lol_api.region');
-        $this->caching = $container->getParameter('opti_lol_api.cache');
+    public function __construct($key, $endpoints, $region, $cache,  $cacheDir, $throttle){
+        $this->endpoints = $endpoints;
+        $this->region = $region;
+        $this->caching = $cache;
+        $this->cacheDir = $cacheDir;
+        $this->key = $key;
+        $this->throttle = $throttle;
         $this->serviceFactory = new ServiceFactory($this->endpoints, $this->region);
         $this->buildClientFactory();
     }
@@ -56,7 +62,7 @@ abstract class Api {
     public function buildClientFactory(){
         $defaultConfig = [
             'defaults' => [
-                'query' => ['api_key' => $this->container->getParameter('opti_lol_api.key')],
+                'query' => ['api_key' => $this->key],
             ],
         ];
 
@@ -65,13 +71,13 @@ abstract class Api {
         $this->client = new GuzzleClient($client, $description);
 
         // Attach the throttle subscriber
-        if($this->container->getParameter('opti_lol_api.throttle')){
+        if($this->throttle){
             $this->client->getHttpClient()->getEmitter()->attach(new ThrottleSubscriber());
         }
 
         // Attach the cache subscriber
         if($this->caching){
-            $this->client->getHttpClient()->getEmitter()->attach(new CacheSubscriber($this->container->getParameter('kernel.cache_dir')));
+            $this->client->getHttpClient()->getEmitter()->attach(new CacheSubscriber($this->cacheDir));
         }
     }
 }

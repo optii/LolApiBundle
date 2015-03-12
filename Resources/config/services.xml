@@ -6,10 +6,21 @@
 
     <services>
         <service id="opti_lol_api.static" class="Opti\LolApiBundle\Api\StaticApi">
-            <argument type="service" id="service_container" />
+            <argument>%opti_lol_api.key%</argument>
+            <argument>%opti_lol_api.endpoints%</argument>
+            <argument>%opti_lol_api.region%</argument>
+            <argument>%opti_lol_api.cache%</argument>
+            <argument>%kernel.cache_dir%</argument>
+            <argument>%opti_lol_api.throttle%</argument>
         </service>
         <service id="opti_lol_api.regional" class="Opti\LolApiBundle\Api\RegionalApi">
-            <argument type="service" id="service_container" />
+            <argument>%opti_lol_api.key%</argument>
+            <argument>%opti_lol_api.endpoints%</argument>
+            <argument>%opti_lol_api.region%</argument>
+            <argument>%opti_lol_api.cache%</argument>
+            <argument>%kernel.cache_dir%</argument>
+            <argument>%opti_lol_api.throttle%</argument>
         </service>
     </services>
 </container>
+       
