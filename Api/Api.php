@@ -10,7 +10,6 @@ namespace Opti\LolApiBundle\Api;
 
 use GuzzleHttp\Client;
 use Opti\LolApiBundle\Subscriber\CacheSubscriber;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use Opti\LolApiBundle\Subscriber\ThrottleSubscriber;
