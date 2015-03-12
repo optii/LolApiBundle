@@ -13,7 +13,6 @@ use Opti\LolApiBundle\Subscriber\CacheSubscriber;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use Opti\LolApiBundle\Subscriber\ThrottleSubscriber;
-use Opti\LolApiBundle\Responses\ResponseConverter;
 
 abstract class Api {
 
