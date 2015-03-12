@@ -9,6 +9,7 @@
 namespace Opti\LolApiBundle\Api;
 
 use GuzzleHttp\Client;
+use Opti\LolApiBundle\Subscriber\CacheSubscriber;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
@@ -63,8 +64,14 @@ abstract class Api {
         $description = new Description($this->getService());
         $this->client = new GuzzleClient($client, $description);
 
+        // Attach the throttle subscriber
         if($this->container->getParameter('opti_lol_api.throttle')){
             $this->client->getHttpClient()->getEmitter()->attach(new ThrottleSubscriber());
+        }
+
+        // Attach the cache subscriber
+        if($this->caching){
+            $this->client->getHttpClient()->getEmitter()->attach(new CacheSubscriber());
         }
     }
 }
