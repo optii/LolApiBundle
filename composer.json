@@ -1,7 +1,6 @@
 {
-  "name": "opti/LolApiBundle",
+  "name": "optii/lol-api",
   "description": "Lol API bundle",
-  "version": "0.1",
   "type": "symfony-bundle",
   "authors": [
     {
@@ -22,14 +21,10 @@
   },
   "autoload": {
     "psr-0": {
-      "Company\\DemoBundle": ""
+      "Optii\\LolApiBundle": ""
     }
   },
   "target-dir": "Opti/LolApiBundle",
-  "repositories": [
-    {
-    }
-  ],
   "extra": {
     "branch-alias": {
       "dev-master": "0.1-dev"
