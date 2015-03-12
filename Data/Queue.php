@@ -18,3 +18,4 @@ class Queue {
         return array(self::RANKED_SOLO_5X5, self::RANKED_TEAM_3X3, self::RANKED_TEAM_5X5);
     }
 }
+

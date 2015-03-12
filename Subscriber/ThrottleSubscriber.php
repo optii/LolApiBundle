@@ -38,3 +38,4 @@ class ThrottleSubscriber implements SubscriberInterface {
         self::$previousTimestamp = microtime(true);
     }
 }
+

@@ -71,7 +71,8 @@ abstract class Api {
 
         // Attach the cache subscriber
         if($this->caching){
-            $this->client->getHttpClient()->getEmitter()->attach(new CacheSubscriber());
+            $this->client->getHttpClient()->getEmitter()->attach(new CacheSubscriber($this->container->getParameter('kernel.cache_dir')));
         }
     }
 }
+

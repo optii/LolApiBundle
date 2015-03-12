@@ -36,3 +36,5 @@ class OptiLolApiExtension extends Extension
         $container->setParameter('opti_lol_api.throttle', $config['throttle']);
     }
 }
+
+

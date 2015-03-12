@@ -52,3 +52,4 @@ class Champ {
         return implode(",", $champs);
     }
 }
+

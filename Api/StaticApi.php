@@ -8,9 +8,6 @@
 
 namespace Opti\LolApiBundle\Api;
 
-
-use GuzzleHttp\Client;
-
 class StaticApi extends Api {
 
     public function getService()
@@ -18,3 +15,4 @@ class StaticApi extends Api {
         return $this->serviceFactory->getStaticDataService();
     }
 }
+

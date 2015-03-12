@@ -20,10 +20,10 @@ class CacheSubscriber implements SubscriberInterface{
 
     /** @var FilesystemCache  */
     private $cache;
+    const CHACHE_SUB_DIR = "/lolapi";
 
-
-    public function __construct(){
-        $this->cache = new FilesystemCache(__DIR__."/../cache");
+    public function __construct($rootDir){
+        $this->cache = new FilesystemCache($rootDir.self::CHACHE_SUB_DIR);
     }
 
     /**
@@ -69,3 +69,4 @@ class CacheSubscriber implements SubscriberInterface{
     }
 
 }
+
