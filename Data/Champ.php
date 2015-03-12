@@ -15,7 +15,7 @@ class Champ {
     const ALLY_TIPS = "allytips";
     const ALT_IMAGES = "altimages";
     const BLURB = "blurb";
-    const ENEMY_TIPS = "enemytipes";
+    const ENEMY_TIPS = "enemytips";
     const IMAGE = "image";
     const INFO = "info";
     const LORE = "lore";
@@ -23,7 +23,7 @@ class Champ {
     const PASSIVE = "passive";
     const RECOMMENDED = "recommended";
     const SKINS = "skins";
-    const SPELLS = "spell";
+    const SPELLS = "spells";
     const STATS = "stats";
     const TAGS = "tags";
 
@@ -50,6 +50,10 @@ class Champ {
 
     public static function getMultipleChamps($champs = array()){
         return implode(",", $champs);
+    }
+
+    public static function getAllChamps(){
+        return implode(",", self::getAllChamps());
     }
 }
 

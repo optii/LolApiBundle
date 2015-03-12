@@ -321,7 +321,7 @@ class ServiceFactory {
                             'default' => $this->region,
                         ],
                         'freeToPlay' => [
-                            'type' => 'boolean',
+                            'type' => 'string',
                             'location' => 'query',
                             'required' => false
                         ]

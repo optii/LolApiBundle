@@ -13,6 +13,7 @@ use Opti\LolApiBundle\Subscriber\CacheSubscriber;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use Opti\LolApiBundle\Subscriber\ThrottleSubscriber;
+use Opti\LolApiBundle\Responses\ResponseConverter;
 
 abstract class Api {
 
@@ -46,7 +47,8 @@ abstract class Api {
 
 
     public function __call($name, $arguments){
-        return $this->client->{$name}((array_key_exists(0,$arguments)) ? $arguments[0] : null);
+        $response = $this->client->{$name}((array_key_exists(0,$arguments)) ? $arguments[0] : null);
+        return $response;
     }
 
 
