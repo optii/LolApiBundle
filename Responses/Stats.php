@@ -6,7 +6,7 @@
  * Time: 18:14
  */
 
-namespace Opti\LolApiBundle\Responses;
+namespace Optii\LolApiBundle\Responses;
 
 
 class Stats extends BaseResponse {

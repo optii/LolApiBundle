@@ -6,7 +6,7 @@
  * Time: 13:06
  */
 
-namespace Opti\LolApiBundle\Data;
+namespace Optii\LolApiBundle\Data;
 
 
 class Platform {

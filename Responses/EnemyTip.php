@@ -6,7 +6,7 @@
  * Time: 19:37
  */
 
-namespace Opti\LolApiBundle\Responses;
+namespace Optii\LolApiBundle\Responses;
 
 
 class EnemyTip extends BaseResponse{

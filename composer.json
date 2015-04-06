@@ -1,5 +1,5 @@
 {
-  "name": "optii/lol-api",
+  "name": "optii/LolApiBundle",
   "description": "Lol API bundle",
   "type": "symfony-bundle",
   "authors": [
@@ -24,7 +24,7 @@
       "Optii\\LolApiBundle": ""
     }
   },
-  "target-dir": "Opti/LolApiBundle",
+  "target-dir": "Optii/LolApiBundle",
   "extra": {
     "branch-alias": {
       "dev-master": "0.1-dev"

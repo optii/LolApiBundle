@@ -6,7 +6,7 @@
  * Time: 11:59
  */
 
-namespace Opti\LolApiBundle\Data;
+namespace Optii\LolApiBundle\Data;
 
 class Region {
     const BR = "br";

@@ -6,7 +6,7 @@
  * Time: 00:08
  */
 
-namespace Opti\LolApiBundle\Api;
+namespace Optii\LolApiBundle\Api;
 
 class StaticApi extends Api {
 

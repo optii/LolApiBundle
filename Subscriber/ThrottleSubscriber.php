@@ -6,7 +6,7 @@
  * Time: 12:34
  */
 
-namespace Opti\LolApiBundle\Subscriber;
+namespace Optii\LolApiBundle\Subscriber;
 
 use GuzzleHttp\Event\SubscriberInterface;
 use GuzzleHttp\Event\CompleteEvent;

@@ -6,7 +6,7 @@
  * Time: 15:16
  */
 
-namespace Opti\LolApiBundle\Data;
+namespace Optii\LolApiBundle\Data;
 
 
 class Champ {

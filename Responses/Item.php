@@ -6,7 +6,7 @@
  * Time: 18:17
  */
 
-namespace Opti\LolApiBundle\Responses;
+namespace Optii\LolApiBundle\Responses;
 
 
 class Item extends BaseResponse {

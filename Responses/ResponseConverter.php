@@ -6,7 +6,7 @@
  * Time: 17:15
  */
 
-namespace Opti\LolApiBundle\Responses;
+namespace Optii\LolApiBundle\Responses;
 
 class ResponseConverter {
 

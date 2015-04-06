@@ -6,7 +6,7 @@
  * Time: 19:38
  */
 
-namespace Opti\LolApiBundle\Responses;
+namespace Optii\LolApiBundle\Responses;
 
 
 class Tag extends BaseResponse{

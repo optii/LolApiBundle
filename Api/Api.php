@@ -6,13 +6,13 @@
  * Time: 00:16
  */
 
-namespace Opti\LolApiBundle\Api;
+namespace Optii\LolApiBundle\Api;
 
 use GuzzleHttp\Client;
-use Opti\LolApiBundle\Subscriber\CacheSubscriber;
+use Optii\LolApiBundle\Subscriber\CacheSubscriber;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
-use Opti\LolApiBundle\Subscriber\ThrottleSubscriber;
+use Optii\LolApiBundle\Subscriber\ThrottleSubscriber;
 
 abstract class Api {
 

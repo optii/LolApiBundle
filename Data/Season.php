@@ -6,7 +6,7 @@
  * Time: 13:03
  */
 
-namespace Opti\LolApiBundle\Data;
+namespace Optii\LolApiBundle\Data;
 
 
 class Season {

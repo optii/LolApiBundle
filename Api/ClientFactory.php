@@ -6,7 +6,7 @@
  * Time: 23:30
  */
 
-namespace Opti\LolApiBundle\Api;
+namespace Optii\LolApiBundle\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Command\Guzzle\Description;

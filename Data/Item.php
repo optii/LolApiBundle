@@ -6,7 +6,7 @@
  * Time: 15:27
  */
 
-namespace Opti\LolApiBundle\Data;
+namespace Optii\LolApiBundle\Data;
 
 
 class Item {

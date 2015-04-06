@@ -6,7 +6,7 @@
  * Time: 17:43
  */
 
-namespace Opti\LolApiBundle\Responses;
+namespace Optii\LolApiBundle\Responses;
 
 
 abstract class BaseResponse {

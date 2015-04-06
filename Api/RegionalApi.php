@@ -6,7 +6,7 @@
  * Time: 12:29
  */
 
-namespace Opti\LolApiBundle\Api;
+namespace Optii\LolApiBundle\Api;
 
 
 class RegionalApi extends Api

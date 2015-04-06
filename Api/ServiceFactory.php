@@ -6,7 +6,7 @@
  * Time: 23:33
  */
 
-namespace Opti\LolApiBundle\Api;
+namespace Optii\LolApiBundle\Api;
 
 class ServiceFactory {
 

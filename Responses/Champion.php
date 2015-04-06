@@ -6,7 +6,7 @@
  * Time: 17:52
  */
 
-namespace Opti\LolApiBundle\Responses;
+namespace Optii\LolApiBundle\Responses;
 
 
 class Champion extends BaseResponse {

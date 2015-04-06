@@ -6,7 +6,7 @@
  * Time: 18:11
  */
 
-namespace Opti\LolApiBundle\Responses;
+namespace Optii\LolApiBundle\Responses;
 
 
 class Spell extends BaseResponse {

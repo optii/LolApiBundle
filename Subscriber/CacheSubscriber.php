@@ -6,7 +6,7 @@
  * Time: 00:25
  */
 
-namespace Opti\LolApiBundle\Subscriber;
+namespace Optii\LolApiBundle\Subscriber;
 
 
 use Doctrine\Common\Cache\FilesystemCache;

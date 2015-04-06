@@ -6,7 +6,7 @@
  * Time: 19:09
  */
 
-namespace Opti\LolApiBundle\Responses;
+namespace Optii\LolApiBundle\Responses;
 
 
 class Skin extends BaseResponse{

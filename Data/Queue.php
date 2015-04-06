@@ -6,7 +6,7 @@
  * Time: 13:02
  */
 
-namespace Opti\LolApiBundle\Data;
+namespace Optii\LolApiBundle\Data;
 
 
 class Queue {

@@ -6,7 +6,7 @@
  * Time: 18:24
  */
 
-namespace Opti\LolApiBundle\Responses;
+namespace Optii\LolApiBundle\Responses;
 
 
 class CurrentGame extends BaseResponse {
