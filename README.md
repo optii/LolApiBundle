@@ -13,7 +13,7 @@ To install the bundle update your composer.json with the follow :
 
 ```json
      "require": {
-            "opti/LolApiBundle" : "dev-master"
+            "optii/LolApiBundle" : "dev-master"
         },
         "repositories" : [{
           "type" : "vcs",
@@ -25,7 +25,7 @@ The next step is to activate the bundle in the symfony kernel, add the following
 
 ```php
     array(
-        new Opti\LolApiBundle\OptiLolApiBundle(),
+        new Optii\LolApiBundle\LolApiBundle(),
         );
 ```
 
