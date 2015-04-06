@@ -13,7 +13,7 @@ To install the bundle update your composer.json with the follow :
 
 ```json
      "require": {
-            "optii/LolApiBundle" : "dev-master"
+            "optii/lol-api-bundle" : "dev-master"
         },
         "repositories" : [{
           "type" : "vcs",
