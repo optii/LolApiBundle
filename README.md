@@ -9,16 +9,10 @@ This bundle will allow you to query the League of Legends API endpoints. Query t
 
 # Getting started
 
-To install the bundle update your composer.json with the follow :
+To install the bundle add the following line to your composer.json file :
 
 ```json
-     "require": {
-            "optii/lol-api-bundle" : "dev-master"
-        },
-        "repositories" : [{
-          "type" : "vcs",
-          "url" : "https://github.com/optii/LolApiBundle.git"
-        }],
+     "optii/lol-api-bundle": "0.1.*@dev"
 ```
 
 The next step is to activate the bundle in the symfony kernel, add the following line to your app/AppKernel.php
