@@ -14,6 +14,11 @@ To install the bundle add the following line to your composer.json file :
 ```json
      "optii/lol-api-bundle": "0.1.*@dev"
 ```
+then update your dependencies
+
+```
+ composer update
+```
 
 The next step is to activate the bundle in the symfony kernel, add the following line to your app/AppKernel.php
 
