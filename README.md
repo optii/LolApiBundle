@@ -24,7 +24,7 @@ The next step is to activate the bundle in the symfony kernel, add the following
 
 ```php
     array(
-        new Optii\LolApiBundle\LolApiBundle(),
+        new Optii\LolApiBundle\OptiLolApiBundle(),
         );
 ```
 
