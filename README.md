@@ -1,6 +1,9 @@
 # Optii\LolApiBundle 
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/183f6eba-be47-43a6-823b-9555ec046b53/small.png)](https://insight.sensiolabs.com/projects/183f6eba-be47-43a6-823b-9555ec046b53)
+[![Latest Stable Version](https://poser.pugx.org/optii/lol-api-bundle/v/stable)](https://packagist.org/packages/optii/lol-api-bundle) 
+[![Total Downloads](https://poser.pugx.org/optii/lol-api-bundle/downloads)](https://packagist.org/packages/optii/lol-api-bundle) 
+[![Latest Unstable Version](https://poser.pugx.org/optii/lol-api-bundle/v/unstable)](https://packagist.org/packages/optii/lol-api-bundle) [![License](https://poser.pugx.org/optii/lol-api-bundle/license)](https://packagist.org/packages/optii/lol-api-bundle)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/183f6eba-be47-43a6-823b-9555ec046b53/mini.png)](https://insight.sensiolabs.com/projects/183f6eba-be47-43a6-823b-9555ec046b53)
 
 This bundle will allow you to query the League of Legends API endpoints. Query throttling and caching are available via the bundle. The bundle is built upon the Guzzle framework.
 
