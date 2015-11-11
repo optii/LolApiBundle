@@ -12,13 +12,20 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
+    private $alias;
+
+    public function __construct($alias)
+    {
+        $this->alias = $alias;
+    }
+
     /**
      * {@inheritdoc}
      */
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('opti_lol_api');
+        $rootNode = $treeBuilder->root($this->alias);
 
         $rootNode
             ->children()

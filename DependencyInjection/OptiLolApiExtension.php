@@ -14,12 +14,13 @@ use Symfony\Component\DependencyInjection\Loader;
  */
 class OptiLolApiExtension extends Extension
 {
+
     /**
      * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = new Configuration();
+        $configuration = new Configuration($this->getAlias());
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
@@ -34,6 +35,11 @@ class OptiLolApiExtension extends Extension
         $container->setParameter('opti_lol_api.endpoints', $config['endpoints']);
         $container->setParameter('opti_lol_api.region', $config['region']);
         $container->setParameter('opti_lol_api.throttle', $config['throttle']);
+    }
+
+    public function getAlias()
+    {
+        return 'opti_lol_api';
     }
 }
 
