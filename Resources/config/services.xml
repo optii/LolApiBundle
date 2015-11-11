@@ -5,7 +5,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="opti_lol_api.static" class="Opti\LolApiBundle\Api\StaticApi">
+        <service id="opti_lol_api.static" class="Optii\LolApiBundle\Api\StaticApi">
             <argument>%opti_lol_api.key%</argument>
             <argument>%opti_lol_api.endpoints%</argument>
             <argument>%opti_lol_api.region%</argument>
@@ -13,7 +13,7 @@
             <argument>%kernel.cache_dir%</argument>
             <argument>%opti_lol_api.throttle%</argument>
         </service>
-        <service id="opti_lol_api.regional" class="Opti\LolApiBundle\Api\RegionalApi">
+        <service id="opti_lol_api.regional" class="Optii\LolApiBundle\Api\RegionalApi">
             <argument>%opti_lol_api.key%</argument>
             <argument>%opti_lol_api.endpoints%</argument>
             <argument>%opti_lol_api.region%</argument>

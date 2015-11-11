@@ -67,6 +67,7 @@ abstract class Api {
         ];
 
         $client = new Client($defaultConfig);
+        $client->setDefaultOption('verify', false);
         $description = new Description($this->getService());
         $this->client = new GuzzleClient($client, $description);
 
