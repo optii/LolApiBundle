@@ -58,7 +58,7 @@ class ServiceFactory {
                 'getChampion' => [
                     'httpMethod' => 'GET',
                     'uri' => '/api/lol/static-data/{region}/v1.2/champion/{id}',
-                    'responseModel' => 'Optii\LolApiBundle\Responses\Champion',
+                    'responseModel' => 'GetResponse',
                     'parameters' => [
                         'region' => [
                             'type' => 'string',
@@ -119,7 +119,7 @@ class ServiceFactory {
                 'getItem' => [
                     'httpMethod' => 'GET',
                     'uri' => '/api/lol/static-data/{region}/v1.2/item/{id}',
-                    'responseModel' => 'Optii\LolApiBundle\Responses\Item',
+                    'responseModel' => 'GetResponse',
                     'parameters' => [
                         'region' => [
                             'type' => 'string',
@@ -330,7 +330,7 @@ class ServiceFactory {
                 'getChampion' => [
                     'httpMethod' => 'GET',
                     'uri' => '/api/lol/{region}/v1.2/champion/{id}',
-                    'responseModel' => 'Optii\LolApiBundle\Responses\Champion',
+                    'responseModel' => 'GetResponse',
                     'parameters' => [
                         'id' => [
                             'type' => 'string',
@@ -348,7 +348,7 @@ class ServiceFactory {
                 'getCurrentGame' => [
                     'httpMethod' => 'GET',
                     'uri' => '/observer-mode/rest/consumer/getSpectatorGameInfo/{platformId}/{summonerId}',
-                    'responseModel' => 'Optii\LolApiBundle\Responses\CurrentGame',
+                    'responseModel' => 'GetResponse',
                     'parameters' => [
                         'summonerId' => [
                             'type' => 'integer',

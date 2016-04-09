@@ -8,21 +8,11 @@
 
 namespace Optii\LolApiBundle\Responses;
 
-use Guzzle\Service\Command\ResponseClassInterface;
-use Guzzle\Service\Command\OperationCommand;
-
-abstract class BaseResponse implements ResponseClassInterface{
+abstract class BaseResponse{
     protected $arguments;
 
     private $notPlurals = array('stats');
 
-    public static function fromCommand(OperationCommand $command)
-    {
-        $response = $command->getResponse();
-        $array = json_decode($response->json(), true);
-
-        return new static($array);
-    }
 
     public function __construct($response, $arguments = array()){
         $this->arguments = $arguments;
