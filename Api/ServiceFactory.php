@@ -58,7 +58,7 @@ class ServiceFactory {
                 'getChampion' => [
                     'httpMethod' => 'GET',
                     'uri' => '/api/lol/static-data/{region}/v1.2/champion/{id}',
-                    'responseModel' => 'GetResponse',
+                    'responseModel' => 'Optii\LolApiBundle\Responses\Champion',
                     'parameters' => [
                         'region' => [
                             'type' => 'string',
@@ -119,7 +119,7 @@ class ServiceFactory {
                 'getItem' => [
                     'httpMethod' => 'GET',
                     'uri' => '/api/lol/static-data/{region}/v1.2/item/{id}',
-                    'responseModel' => 'GetResponse',
+                    'responseModel' => 'Optii\LolApiBundle\Responses\Item',
                     'parameters' => [
                         'region' => [
                             'type' => 'string',
@@ -330,7 +330,7 @@ class ServiceFactory {
                 'getChampion' => [
                     'httpMethod' => 'GET',
                     'uri' => '/api/lol/{region}/v1.2/champion/{id}',
-                    'responseModel' => 'GetResponse',
+                    'responseModel' => 'Optii\LolApiBundle\Responses\Champion',
                     'parameters' => [
                         'id' => [
                             'type' => 'string',
@@ -348,7 +348,7 @@ class ServiceFactory {
                 'getCurrentGame' => [
                     'httpMethod' => 'GET',
                     'uri' => '/observer-mode/rest/consumer/getSpectatorGameInfo/{platformId}/{summonerId}',
-                    'responseModel' => 'GetResponse',
+                    'responseModel' => 'Optii\LolApiBundle\Responses\CurrentGame',
                     'parameters' => [
                         'summonerId' => [
                             'type' => 'integer',
@@ -744,6 +744,7 @@ class ServiceFactory {
 
     /**
      * @param $region
+     * @return $this
      */
     public function setRegion($region){
         $this->region = $region;
